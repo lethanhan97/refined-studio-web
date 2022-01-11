@@ -1,0 +1,12 @@
+@use 'sass:color';
+
+$black-1: #262626;
+$grey-1: #767676;
+$grey-2: #acacac;
+$grey-3: #dfdfdf;
+$white: #ffffff;
+$transparent: rgba(0, 0, 0, 0);
+
+@function opacify($color, $opacity) {
+  @return rgba($color, $opacity);
+}

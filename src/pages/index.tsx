@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import styles from '../modules/Home/Home.module.scss';
+import Button from '../shared/components/Button';
 import Text from '../shared/components/Text';
 
 const Home: NextPage = () => {
@@ -21,6 +22,10 @@ const Home: NextPage = () => {
         <Text.H4>Hello Universe</Text.H4>
         <Text.Body1>Hello Universe</Text.Body1>
         <Text.Body2>Hello Universe</Text.Body2>
+
+        <Button mode="filled">Filled</Button>
+        <Button mode="outlined">Outlined</Button>
+        <Button mode="text">Text</Button>
       </main>
 
       <footer className={styles.footer}>
