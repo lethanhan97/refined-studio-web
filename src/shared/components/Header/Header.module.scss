@@ -10,10 +10,6 @@
 
   &-nav {
     &-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
       display: flex;
 
       &-item {
@@ -27,6 +23,24 @@
 
         &-selected {
           color: $black-1;
+        }
+      }
+    }
+  }
+
+  &-links {
+    display: flex;
+
+    &-item {
+      padding-left: 1.5rem;
+
+      &-contact {
+        display: flex;
+        align-items: center;
+
+        &-number {
+          color: $grey-1;
+          margin-left: 1rem;
         }
       }
     }

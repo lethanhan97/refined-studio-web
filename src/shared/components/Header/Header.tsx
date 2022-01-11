@@ -2,12 +2,18 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
+import assets from '../../assets';
 import { c } from '../../utils/classNameParser';
 import Text from '../Text';
 import styles from './Header.module.scss';
 
 interface HeaderNavItem {
   display: string;
+  url: string;
+}
+
+interface ContactUsItem {
+  Icon: () => React.ReactElement;
   url: string;
 }
 
@@ -30,6 +36,17 @@ const Header: React.FC<HeaderProps> = ({}) => {
     {
       display: 'Our Works',
       url: '/our-works',
+    },
+  ];
+
+  const contactUsItems: ContactUsItem[] = [
+    {
+      Icon: assets.Instagram,
+      url: 'https://www.instagram.com/refinedstudio._/',
+    },
+    {
+      Icon: assets.Facebook,
+      url: 'https://www.facebook.com/refinedstudio.46',
     },
   ];
 
@@ -69,6 +86,23 @@ const Header: React.FC<HeaderProps> = ({}) => {
           ))}
         </ul>
       </nav>
+
+      <ul className={styles['header-links']}>
+        <li className={styles['header-links-item-contact']}>
+          <assets.Phone />
+          <Text.Body2 classNames={[styles['header-links-item-contact-number']]}>
+            097 422 08 97
+          </Text.Body2>
+        </li>
+        {contactUsItems.map(({ Icon, url }) => (
+          <li className={styles['header-links-item']} key={url}>
+            <a href={url} target="_blank" rel="noreferrer">
+              {' '}
+              <Icon />
+            </a>
+          </li>
+        ))}
+      </ul>
     </header>
   );
 };
