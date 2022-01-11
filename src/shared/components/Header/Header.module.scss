@@ -1,0 +1,34 @@
+@import '../../styles/colors.scss';
+
+.header {
+  padding: 1.5rem 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid $grey-3;
+
+  &-nav {
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      display: flex;
+
+      &-item {
+        margin: 0 1.5rem;
+        transition: opacity 0.5s ease;
+        color: $grey-1;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &-selected {
+          color: $black-1;
+        }
+      }
+    }
+  }
+}
