@@ -3,7 +3,7 @@ import React from 'react';
 import { primaryFill, secondaryFill } from './constants';
 import { IconProps } from './types';
 
-const Phone: React.FC<IconProps> = ({ mode }) => {
+const Phone: React.FC<IconProps> = ({ mode = 'primary' }) => {
   const fillColor = mode === 'primary' ? primaryFill : secondaryFill;
   return (
     <svg

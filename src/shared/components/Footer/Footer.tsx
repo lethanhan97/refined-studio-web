@@ -9,6 +9,7 @@ import styles from './Footer.module.scss';
 interface CreditItem {
   normalDisplay: string;
   highlightDisplay: string;
+  url: string;
 }
 
 interface FooterProps {}
@@ -18,10 +19,12 @@ const Footer: React.FC<FooterProps> = ({}) => {
     {
       normalDisplay: 'Coded by ',
       highlightDisplay: 'Anfromvietnam',
+      url: 'https://www.instagram.com/anfromvietnam/',
     },
     {
       normalDisplay: 'Designed by ',
       highlightDisplay: 'Deep Anh',
+      url: 'https://www.instagram.com/ac.deepanh.dod/',
     },
   ];
 
@@ -29,6 +32,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
     {
       Icon: assets.Phone,
       displayText: '097 422 08 97',
+      copyText: '0974220897',
     },
     {
       Icon: assets.Mail,
@@ -59,14 +63,16 @@ const Footer: React.FC<FooterProps> = ({}) => {
       </ul>
 
       <ul className={styles['footer-credits']}>
-        {creditItems.map(({ normalDisplay, highlightDisplay }) => (
+        {creditItems.map(({ normalDisplay, highlightDisplay, url }) => (
           <li key={normalDisplay}>
-            <Text.Body2 classNames={[styles['footer-credits-item']]}>
-              {normalDisplay}
-              <span className={styles['footer-credits-item-highlight']}>
-                {highlightDisplay}
-              </span>
-            </Text.Body2>
+            <a href={url} target="_blank" rel="noreferrer">
+              <Text.Body2 classNames={[styles['footer-credits-item']]}>
+                {normalDisplay}
+                <span className={styles['footer-credits-item-highlight']}>
+                  {highlightDisplay}
+                </span>
+              </Text.Body2>
+            </a>
           </li>
         ))}
       </ul>
@@ -78,10 +84,12 @@ interface FooterContactItemProps {
   Icon: React.FC<IconProps>;
   displayText: string;
   url?: string;
+  copyText?: string;
 }
 const FooterContactItem: React.FC<FooterContactItemProps> = ({
   Icon,
   displayText,
+  copyText,
   url,
 }) => {
   const [currentDisplayText, setCurrentDisplayText] = useState('');
@@ -89,14 +97,16 @@ const FooterContactItem: React.FC<FooterContactItemProps> = ({
     setCurrentDisplayText(displayText);
   }, [displayText]);
 
-  const COPIED_MESSAGE_TO_DISPLAY_TEXT_DURATION = 500;
+  const COPIED_MESSAGE_TO_DISPLAY_TEXT_DURATION = 700;
   const WrapperNode: React.ElementType = url ? 'a' : 'button';
   const wrapperProps = {
     href: url,
+    target: url ? '_blank' : undefined,
     onClick: !url
       ? () => {
-          setCurrentDisplayText('Đã copy thành công');
-          navigator.clipboard.writeText(displayText).then(() => {
+          const textToCopy = copyText ?? displayText;
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            setCurrentDisplayText('Đã copy thành công!');
             setTimeout(() => {
               setCurrentDisplayText(displayText);
             }, COPIED_MESSAGE_TO_DISPLAY_TEXT_DURATION);

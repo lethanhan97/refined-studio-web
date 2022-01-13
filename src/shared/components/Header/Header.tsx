@@ -70,18 +70,18 @@ const Header: React.FC<HeaderProps> = ({}) => {
       <nav className={styles['header-nav']}>
         <ul className={styles['header-nav-list']}>
           {headerNavItems.map(({ display, url }) => (
-            <li
-              className={c([
-                styles['header-nav-list-item'],
-                currentRoute.includes(url)
-                  ? styles['header-nav-list-item-selected']
-                  : '',
-              ])}
-              key={url}
-            >
+            <li className={styles['header-nav-list-item']} key={url}>
               <Link href={url}>
                 <a>
-                  <Text.Body2>{display}</Text.Body2>
+                  <Text.Body2
+                    classNames={[
+                      currentRoute.includes(url)
+                        ? styles['header-nav-list-item-selected']
+                        : '',
+                    ]}
+                  >
+                    {display}
+                  </Text.Body2>
                 </a>
               </Link>
             </li>
