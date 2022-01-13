@@ -3,7 +3,7 @@ import React from 'react';
 import { primaryFill, secondaryFill } from './constants';
 import { IconProps } from './types';
 
-const Facebook: React.FC<IconProps> = ({ mode = 'primary' }) => {
+const Mail: React.FC<IconProps> = ({ mode = 'primary' }) => {
   const fillColor = mode === 'primary' ? primaryFill : secondaryFill;
   return (
     <svg
@@ -14,7 +14,13 @@ const Facebook: React.FC<IconProps> = ({ mode = 'primary' }) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+        d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+        stroke={fillColor}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M22 6L12 13L2 6"
         stroke={fillColor}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -23,4 +29,4 @@ const Facebook: React.FC<IconProps> = ({ mode = 'primary' }) => {
   );
 };
 
-export { Facebook };
+export { Mail };

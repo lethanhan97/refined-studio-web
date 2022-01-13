@@ -1,27 +1,12 @@
-@import '../../styles/mixins.scss';
 @import '../../styles/colors.scss';
 
 .button {
-  @include reset-button();
-
   font-family: 'Helvetica Neue';
   font-weight: 300;
   font-size: 1.25rem;
   line-height: 1.75rem;
 
   padding: 1rem 1.5rem;
-
-  transition: opacity 0.5s;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.6;
-  }
-
-  &:active {
-    cursor: pointer;
-    opacity: 0.8;
-  }
 }
 
 .filled {

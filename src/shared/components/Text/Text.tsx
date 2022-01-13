@@ -4,7 +4,6 @@ import styles from './Text.module.scss';
 import { c } from '../../utils/classNameParser';
 
 interface TextProps {
-  children: string;
   classNames?: string[];
 }
 
@@ -17,48 +16,73 @@ const H1: React.FC<H1Props> = ({ children, classNames = [] }) => {
   );
 };
 
-interface H2Props extends TextProps {}
+interface H2Props
+  extends TextProps,
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+    > {}
 const H2: React.FC<H2Props> = ({ children, classNames = [] }) => {
   return (
-    <h1 className={c([styles['h2'], styles['title'], ...classNames])}>
+    <h2 className={c([styles['h2'], styles['title'], ...classNames])}>
       {children}
-    </h1>
+    </h2>
   );
 };
 
-interface H3Props extends TextProps {}
+interface H3Props
+  extends TextProps,
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+    > {}
 const H3: React.FC<H3Props> = ({ children, classNames = [] }) => {
   return (
-    <h1 className={c([styles['h3'], styles['title'], ...classNames])}>
+    <h3 className={c([styles['h3'], styles['title'], ...classNames])}>
       {children}
-    </h1>
+    </h3>
   );
 };
 
-interface H4Props extends TextProps {}
+interface H4Props
+  extends TextProps,
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+    > {}
 const H4: React.FC<H4Props> = ({ children, classNames = [] }) => {
   return (
-    <h1 className={c([styles['h4'], styles['title'], ...classNames])}>
+    <h4 className={c([styles['h4'], styles['title'], ...classNames])}>
       {children}
-    </h1>
+    </h4>
   );
 };
 
-interface Body1Props extends TextProps {}
+interface Body1Props
+  extends TextProps,
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLParagraphElement>,
+      HTMLParagraphElement
+    > {}
 const Body1: React.FC<Body1Props> = ({ children, classNames = [] }) => {
   return (
-    <h1 className={c([styles['body-1'], styles['body'], ...classNames])}>
+    <p className={c([styles['body-1'], styles['body'], ...classNames])}>
       {children}
-    </h1>
+    </p>
   );
 };
 
-interface Body2Props extends TextProps {}
+interface Body2Props
+  extends TextProps,
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLParagraphElement>,
+      HTMLParagraphElement
+    > {}
 const Body2: React.FC<Body2Props> = ({ children, classNames = [] }) => {
   return (
-    <h1 className={c([styles['body-2'], styles['body'], ...classNames])}>
+    <p className={c([styles['body-2'], styles['body'], ...classNames])}>
       {children}
-    </h1>
+    </p>
   );
 };
 

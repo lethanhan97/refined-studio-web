@@ -3,7 +3,9 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import assets from '../../assets';
+import { IconProps } from '../../assets/icons/types';
 import { c } from '../../utils/classNameParser';
+import Logo from '../Logo';
 import Text from '../Text';
 import styles from './Header.module.scss';
 
@@ -13,7 +15,7 @@ interface HeaderNavItem {
 }
 
 interface ContactUsItem {
-  Icon: () => React.ReactElement;
+  Icon: React.FC<IconProps>;
   url: string;
 }
 
@@ -61,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     <header className={styles['header']}>
       <Link href="/">
         <a>
-          <Text.H3>REFINED.</Text.H3>
+          <Logo />
         </a>
       </Link>
 

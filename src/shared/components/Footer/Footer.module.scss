@@ -1,0 +1,35 @@
+@import '../../styles/colors.scss';
+
+.footer {
+  background-color: $secondary-color;
+  padding: 2rem 4rem 0 4rem;
+
+  &-contact {
+    display: flex;
+    justify-content: space-between;
+
+    &-item {
+      display: flex;
+      align-items: center;
+
+      &-text {
+        margin-left: 0.5rem;
+        color: $secondary-text-color-main;
+      }
+    }
+  }
+
+  &-credits {
+    padding: 2rem 0;
+    text-align: center;
+
+    &-item {
+      color: $secondary-text-color-main;
+      font-weight: 300;
+      margin: 0.125rem 0;
+      &-highlight {
+        font-weight: 500;
+      }
+    }
+  }
+}

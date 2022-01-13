@@ -1,6 +1,9 @@
+@import '../../styles/colors.scss';
+
 .title {
   font-weight: 700;
   font-family: 'SVN Monument Extended';
+  color: $primary-text-color-main;
 }
 
 .h1 {
@@ -26,6 +29,7 @@
 .body {
   font-weight: 300;
   font-family: 'Helvetica Neue';
+  color: $primary-text-color-sub;
 }
 
 .body-1 {

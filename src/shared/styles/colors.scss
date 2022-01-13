@@ -7,6 +7,13 @@ $grey-3: #dfdfdf;
 $white: #ffffff;
 $transparent: rgba(0, 0, 0, 0);
 
+$primary-color: $white;
+$secondary-color: $black-1;
+
+$primary-text-color-main: $black-1;
+$primary-text-color-sub: $grey-1;
+$secondary-text-color-main: $white;
+
 @function opacify($color, $opacity) {
   @return rgba($color, $opacity);
 }
