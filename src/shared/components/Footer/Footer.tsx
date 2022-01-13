@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import assets from '../../assets';
 import { IconProps } from '../../assets/icons/types';
@@ -84,13 +84,22 @@ const FooterContactItem: React.FC<FooterContactItemProps> = ({
   displayText,
   url,
 }) => {
+  const [currentDisplayText, setCurrentDisplayText] = useState('');
+  useEffect(() => {
+    setCurrentDisplayText(displayText);
+  }, [displayText]);
+
+  const COPIED_MESSAGE_TO_DISPLAY_TEXT_DURATION = 500;
   const WrapperNode: React.ElementType = url ? 'a' : 'button';
   const wrapperProps = {
     href: url,
     onClick: !url
       ? () => {
+          setCurrentDisplayText('Đã copy thành công');
           navigator.clipboard.writeText(displayText).then(() => {
-            alert(`copied ${displayText}`);
+            setTimeout(() => {
+              setCurrentDisplayText(displayText);
+            }, COPIED_MESSAGE_TO_DISPLAY_TEXT_DURATION);
           });
         }
       : undefined,
@@ -101,7 +110,7 @@ const FooterContactItem: React.FC<FooterContactItemProps> = ({
       <li className={styles['footer-contact-item']}>
         <Icon mode="secondary" />
         <Text.Body2 classNames={[styles['footer-contact-item-text']]}>
-          {displayText}
+          {currentDisplayText}
         </Text.Body2>
       </li>
     </WrapperNode>
