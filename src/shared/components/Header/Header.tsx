@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 
 import assets from '../../assets';
 import { IconProps } from '../../assets/icons/types';
-import { c } from '../../utils/classNameParser';
 import Logo from '../Logo';
 import Text from '../Text';
 import styles from './Header.module.scss';

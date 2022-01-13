@@ -3,6 +3,7 @@
   "rules": {
     // Error rules
     "no-duplicate-imports": "error",
+    "no-unused-vars": "error",
     "no-var": "error",
     "prefer-const": "error",
     "no-unreachable": "error",
