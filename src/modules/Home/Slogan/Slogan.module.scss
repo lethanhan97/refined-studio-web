@@ -1,0 +1,17 @@
+@import '../../../shared/styles/colors.scss';
+
+.slogan {
+  background-color: $primary-color;
+
+  text-align: center;
+  padding: 2.5rem;
+
+  &-subtitle {
+    margin-top: 1rem;
+
+    &-strong {
+      color: $black-1;
+      font-weight: 500;
+    }
+  }
+}
