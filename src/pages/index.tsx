@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import ClientsShowcase from '../modules/Home/ClientsShowcase';
 import styles from '../modules/Home/Home.module.scss';
+import OurWorks, { PortfolioImage } from '../modules/Home/OurWorks';
 import Slogan from '../modules/Home/Slogan';
 import assets from '../shared/assets';
 import InfoSection, {
@@ -32,6 +33,42 @@ const Home: NextPage = () => {
       ctaDisplay: 'Xem bảng giá',
     },
   ];
+
+  const ourWorks: PortfolioImage[] = [
+    {
+      imageSrc: assets.DanDanBoo,
+      ctaDisplay: 'DAN DAN BOO',
+    },
+    {
+      imageSrc: assets.NerdUnit,
+      ctaDisplay: 'NERD UNIT',
+    },
+    {
+      imageSrc: assets.BikeGang,
+      ctaDisplay: 'BIKE GANG',
+    },
+    {
+      imageSrc: assets.ClownZ,
+      ctaDisplay: 'CLOWNZ',
+    },
+    {
+      imageSrc: assets.Tlinh,
+      ctaDisplay: 'Tlinh',
+    },
+    {
+      imageSrc: assets.Chipu,
+      ctaDisplay: 'Chipu',
+    },
+    {
+      imageSrc: assets.Buffaloes,
+      ctaDisplay: 'Buffaloes',
+    },
+    {
+      imageSrc: assets.QuocTit,
+      ctaDisplay: 'QUOC TIT',
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -49,6 +86,11 @@ const Home: NextPage = () => {
             reverse={i % 2 === 1}
           />
         ))}
+
+        <OurWorks
+          portfolioImages={ourWorks}
+          classNames={[styles['home-our-works']]}
+        />
         <ClientsShowcase classNames={[styles['home-client-showcase']]} />
       </div>
     </>

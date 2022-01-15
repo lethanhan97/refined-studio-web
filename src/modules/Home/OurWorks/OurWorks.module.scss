@@ -1,0 +1,33 @@
+.our-works {
+  text-align: center;
+
+  &-grid {
+    display: flex;
+    margin-top: 1.5rem;
+
+    &-col {
+      display: flex;
+      flex-direction: column;
+
+      flex: 1;
+      height: 80vh;
+    }
+
+    &-item {
+      margin-top: 1.5rem;
+      position: relative;
+
+      &-short {
+        flex: 1;
+      }
+
+      &-long {
+        flex: 2;
+      }
+
+      &-space {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+}
