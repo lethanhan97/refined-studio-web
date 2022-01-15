@@ -3,6 +3,8 @@ import { Instagram } from './icons/Instagram';
 import { Facebook } from './icons/Facebook';
 import { Mail } from './icons/Mail';
 import { Union } from './icons/Union';
+import { ArrowLeft } from './icons/ArrowLeft';
+import { ArrowRight } from './icons/ArrowRight';
 import ClownZLogo from './img/ClownZLogo.png';
 import AboutUsLanding from './img/AboutUsLanding.jpg';
 import ServicesLanding from './img/ServicesLanding.jpg';
@@ -22,6 +24,8 @@ const assets = {
   Facebook,
   Mail,
   Union,
+  ArrowLeft,
+  ArrowRight,
 
   // Img
   ClownZLogo,

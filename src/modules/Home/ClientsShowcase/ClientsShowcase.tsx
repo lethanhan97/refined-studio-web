@@ -15,7 +15,7 @@ const ClientsShowcase: React.FC<ClientsShowcaseProps> = ({
   classNames = [],
 }) => {
   const { width } = useContext(ViewportDimensionContext);
-  const CLIENTS_PER_VIEW = 10;
+  const CLIENTS_PER_VIEW = 5;
 
   return (
     <section className={c([styles['clients-showcase'], ...classNames])}>

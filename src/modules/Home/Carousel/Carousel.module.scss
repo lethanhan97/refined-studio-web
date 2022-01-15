@@ -1,0 +1,56 @@
+@import '../../../shared/styles/colors.scss';
+
+.carousel {
+  background-color: red;
+  position: relative;
+
+  &-slider {
+    position: relative;
+  }
+
+  &-dot {
+    $dot-size: 1rem;
+    $dot-margin: 1rem;
+
+    width: $dot-size;
+    height: $dot-size;
+
+    &-wrapper {
+      li {
+        margin-left: $dot-margin;
+      }
+    }
+
+    &-content {
+      background-color: $grey-1;
+      width: $dot-size;
+      height: $dot-size;
+      transform: rotate(45deg);
+
+      transition: opacity 0.5s ease, background-color 0.5s ease;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &-selected {
+        background-color: $white;
+      }
+    }
+  }
+
+  &-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    $arrow-padding: 2rem;
+
+    &-left {
+      left: $arrow-padding;
+    }
+    &-right {
+      right: $arrow-padding;
+    }
+  }
+}

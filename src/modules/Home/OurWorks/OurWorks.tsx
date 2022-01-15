@@ -91,6 +91,10 @@ const OurWorks: React.FC<OurWorksProps> = ({
           </div>
         ))}
       </div>
+
+      <Button mode="cta" classNames={[styles['our-works-cta']]}>
+        <Text.Body1>Xem tất cả</Text.Body1>
+      </Button>
     </section>
   );
 };
