@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
+import ClientsShowcase from '../modules/Home/ClientsShowcase';
 import styles from '../modules/Home/Home.module.scss';
 import Slogan from '../modules/Home/Slogan';
 
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       </Head>
       <div className={styles.container}>
         <Slogan />
+        <ClientsShowcase />
       </div>
     </>
   );
