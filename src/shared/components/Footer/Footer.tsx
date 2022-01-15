@@ -116,14 +116,18 @@ const FooterContactItem: React.FC<FooterContactItemProps> = ({
   };
 
   return (
-    <WrapperNode key={displayText} {...wrapperProps}>
-      <li className={styles['footer-contact-item']}>
+    <li>
+      <WrapperNode
+        className={styles['footer-contact-item']}
+        key={displayText}
+        {...wrapperProps}
+      >
         <Icon mode="secondary" />
         <Text.Body2 classNames={[styles['footer-contact-item-text']]}>
           {currentDisplayText}
         </Text.Body2>
-      </li>
-    </WrapperNode>
+      </WrapperNode>
+    </li>
   );
 };
 

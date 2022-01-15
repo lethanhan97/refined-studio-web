@@ -104,9 +104,9 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
   return (
     <div className={styles['carousel-item']}>
       <div className={styles['carousel-item-cta']}>
-        <Text.H3 classNames={[styles['carousel-item-cta-text']]}>
+        <Text.H2 classNames={[styles['carousel-item-cta-text']]}>
           {displayText}
-        </Text.H3>
+        </Text.H2>
 
         <Button
           mode="cta"
@@ -135,7 +135,11 @@ const CarouselArrow: React.FC<CarouselArrowProps> = ({
   onClick,
 }) => {
   return (
-    <button className={c([...classNames])} onClick={onClick}>
+    <button
+      aria-label={`arrow ${type}`}
+      className={c([...classNames])}
+      onClick={onClick}
+    >
       {type === 'left' ? (
         <ArrowLeft mode="secondary" />
       ) : (
