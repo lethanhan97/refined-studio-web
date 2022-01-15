@@ -3,6 +3,8 @@ import { Instagram } from './icons/Instagram';
 import { Facebook } from './icons/Facebook';
 import { Mail } from './icons/Mail';
 import ClownZLogo from './img/ClownZLogo.png';
+import AboutUsLanding from './img/AboutUsLanding.jpg';
+import ServicesLanding from './img/ServicesLanding.jpg';
 
 const assets = {
   // SVGs
@@ -13,6 +15,8 @@ const assets = {
 
   // Img
   ClownZLogo,
+  AboutUsLanding,
+  ServicesLanding,
 };
 
 export default assets;
