@@ -1,16 +1,23 @@
+import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
 
+import Text from '../../../shared/components/Text';
 import { ArrowLeft } from '../../../shared/assets/icons/ArrowLeft';
 import { ArrowRight } from '../../../shared/assets/icons/ArrowRight';
 import { c } from '../../../shared/utils/classNameParser';
 import styles from './Carousel.module.scss';
+import Button from '../../../shared/components/Button';
 
 interface CarouselProps {
   classNames?: string[];
+  carouselItems: CarouselItemProps[];
 }
 
-const Carousel: React.FC<CarouselProps> = ({ classNames = [] }) => {
+const Carousel: React.FC<CarouselProps> = ({
+  classNames = [],
+  carouselItems,
+}) => {
   const sliderRef = useRef<Slider>(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -20,11 +27,15 @@ const Carousel: React.FC<CarouselProps> = ({ classNames = [] }) => {
     dots: true,
     infinite: true,
     speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    cssEase: 'ease',
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (_: number, next: number) => setActiveSlide(next),
     appendDots: (dots: React.ReactNode[]) => (
       <div
+        //   Inline styling because this div can't have className injected
         style={{
           position: 'absolute',
           bottom: 0,
@@ -61,16 +72,9 @@ const Carousel: React.FC<CarouselProps> = ({ classNames = [] }) => {
   return (
     <section className={c([styles['carousel'], ...classNames])}>
       <Slider {...settings} ref={sliderRef}>
-        {[...Array(10)].map((_, i) => (
+        {carouselItems.map((props, i) => (
           <div key={i}>
-            <div
-              style={{
-                height: '80vh',
-                width: '100vw',
-              }}
-            >
-              <h3>{i}</h3>
-            </div>
+            <CarouselItem {...props} />
           </div>
         ))}
       </Slider>
@@ -89,6 +93,37 @@ const Carousel: React.FC<CarouselProps> = ({ classNames = [] }) => {
   );
 };
 
+export interface CarouselItemProps {
+  displayText: string;
+  imageSrc: StaticImageData;
+}
+const CarouselItem: React.FC<CarouselItemProps> = ({
+  imageSrc,
+  displayText,
+}) => {
+  return (
+    <div className={styles['carousel-item']}>
+      <div className={styles['carousel-item-cta']}>
+        <Text.H3 classNames={[styles['carousel-item-cta-text']]}>
+          {displayText}
+        </Text.H3>
+
+        <Button
+          mode="cta"
+          ctaIconMode="secondary"
+          classNames={[styles['carousel-item-cta-button']]}
+        >
+          <Text.Body1 classNames={[styles['carousel-item-cta-text']]}>
+            Xem chi tiết
+          </Text.Body1>
+        </Button>
+      </div>
+
+      <Image layout="fill" objectFit="cover" src={imageSrc} alt={displayText} />
+    </div>
+  );
+};
+
 interface CarouselArrowProps {
   type: 'left' | 'right';
   classNames?: string[];
@@ -101,7 +136,11 @@ const CarouselArrow: React.FC<CarouselArrowProps> = ({
 }) => {
   return (
     <button className={c([...classNames])} onClick={onClick}>
-      {type === 'left' ? <ArrowLeft /> : <ArrowRight />}
+      {type === 'left' ? (
+        <ArrowLeft mode="secondary" />
+      ) : (
+        <ArrowRight mode="secondary" />
+      )}
     </button>
   );
 };

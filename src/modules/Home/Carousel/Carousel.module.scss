@@ -1,14 +1,54 @@
 @import '../../../shared/styles/colors.scss';
 
 .carousel {
-  background-color: red;
   position: relative;
+
+  &-item {
+    position: relative;
+    height: 80vh;
+    width: 100vw;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      background: radial-gradient(circle, $transparent 20%, $black-1 100%),
+        linear-gradient(0deg, $black-1 0%, $transparent 20%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-cta {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+      z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-text {
+        color: $white;
+      }
+
+      &-button {
+        color: $white;
+        margin: 1rem 0 2.5rem 0;
+      }
+    }
+  }
 
   &-slider {
     position: relative;
   }
 
   &-dot {
+    z-index: 1;
+
     $dot-size: 1rem;
     $dot-margin: 1rem;
 
@@ -43,6 +83,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1;
 
     $arrow-padding: 2rem;
 

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import Carousel from '../modules/Home/Carousel';
+import Carousel, { CarouselItemType } from '../modules/Home/Carousel';
 import ClientsShowcase from '../modules/Home/ClientsShowcase';
 import styles from '../modules/Home/Home.module.scss';
 import OurWorks, { PortfolioImage } from '../modules/Home/OurWorks';
@@ -70,6 +70,21 @@ const Home: NextPage = () => {
     },
   ];
 
+  const carouselItems: CarouselItemType[] = [
+    {
+      displayText: 'Dan Dan Collection',
+      imageSrc: assets.DanDanBoo,
+    },
+    {
+      displayText: 'ClownZ Collection',
+      imageSrc: assets.ClownZ,
+    },
+    {
+      displayText: 'Chipu Collection',
+      imageSrc: assets.Chipu,
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -79,7 +94,7 @@ const Home: NextPage = () => {
       </Head>
       <div className={styles['home']}>
         <Slogan />
-        <Carousel />
+        <Carousel carouselItems={carouselItems} />
 
         {infoSectionContentArray.map((props, i) => (
           <InfoSection
