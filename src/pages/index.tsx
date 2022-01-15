@@ -13,9 +13,9 @@ const Home: NextPage = () => {
         <meta name="description" content="Refined Photography Studio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.container}>
+      <div className={styles['home']}>
         <Slogan />
-        <ClientsShowcase />
+        <ClientsShowcase classNames={[styles['home-client-showcase']]} />
       </div>
     </>
   );
