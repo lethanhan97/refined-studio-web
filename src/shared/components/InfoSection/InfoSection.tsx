@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import { c } from '../../utils/classNameParser';
+import Button from '../Button';
 import Text from '../Text';
 import styles from './InfoSection.module.scss';
 
@@ -11,6 +12,7 @@ export interface InfoSectionProps {
   paragraphs?: string[];
   imageSrc: StaticImageData;
   reverse?: boolean;
+  ctaDisplay: string;
 }
 
 const InfoSection: React.FC<InfoSectionProps> = ({
@@ -19,6 +21,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   paragraphs = [],
   imageSrc,
   reverse,
+  ctaDisplay,
 }) => {
   return (
     <section
@@ -35,6 +38,10 @@ const InfoSection: React.FC<InfoSectionProps> = ({
             {para}
           </Text.Body2>
         ))}
+
+        <Button mode="cta" classNames={[styles['info-section-cta']]}>
+          <Text.Body1>{ctaDisplay}</Text.Body1>
+        </Button>
       </article>
 
       <div className={styles['info-section-spacer']} />

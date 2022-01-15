@@ -7,6 +7,9 @@
   line-height: 1.75rem;
 
   padding: 1rem 1.5rem;
+
+  display: flex;
+  align-items: center;
 }
 
 .filled {
@@ -25,4 +28,12 @@
   background-color: $transparent;
   color: $black-1;
   border: 1px solid $transparent;
+}
+
+.cta {
+  background-color: $transparent;
+  color: $black-1;
+  border: 1px solid $transparent;
+  text-decoration: underline;
+  padding: 0;
 }
