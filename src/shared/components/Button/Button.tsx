@@ -7,11 +7,13 @@ import styles from './Button.module.scss';
 interface ButtonProps {
   children: string | React.ReactNode;
   mode?: 'filled' | 'text' | 'outlined' | 'cta';
+  ctaIconMode?: 'primary' | 'secondary';
   classNames?: string[];
 }
 
 const Button: React.FC<ButtonProps> = ({
   mode = 'filled',
+  ctaIconMode,
   children,
   classNames = [],
 }) => {
@@ -21,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
       {mode === 'cta' && (
         <>
           <span style={{ width: '1rem' }} />
-          <Union />
+          <Union mode={ctaIconMode} />
         </>
       )}
     </button>

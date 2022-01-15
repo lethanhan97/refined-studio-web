@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React, { useContext, useMemo } from 'react';
 
+import Button from '../../../shared/components/Button';
 import Text from '../../../shared/components/Text';
 import { ViewportDimensionContext } from '../../../shared/contexts/ViewportDimensionContext';
 import { c } from '../../../shared/utils/classNameParser';
@@ -72,7 +73,19 @@ const OurWorks: React.FC<OurWorksProps> = ({
                   alt={ctaDisplay}
                   layout="fill"
                   objectFit="cover"
+                  className={styles['our-works-grid-item-image']}
                 />
+                <Button
+                  classNames={[styles['our-works-grid-item-cta']]}
+                  mode="cta"
+                  ctaIconMode="secondary"
+                >
+                  <Text.Body1
+                    classNames={[styles['our-works-grid-item-cta-text']]}
+                  >
+                    {ctaDisplay}
+                  </Text.Body1>
+                </Button>
               </div>
             ))}
           </div>
