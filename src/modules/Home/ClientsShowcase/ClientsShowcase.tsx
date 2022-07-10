@@ -28,7 +28,7 @@ const ClientsShowcase: React.FC<ClientsShowcaseProps> = ({
           {[...Array(CLIENTS_PER_VIEW * 2)].map((_, i) => (
             <Image
               key={i}
-              src={assets.ClownZLogo}
+              src={assets.general.ClownZLogo}
               alt="Clown Z"
               width={width / CLIENTS_PER_VIEW}
               height={width / CLIENTS_PER_VIEW}

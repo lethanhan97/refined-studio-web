@@ -42,11 +42,11 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
   const contactUsItems: ContactUsItem[] = [
     {
-      Icon: assets.Instagram,
+      Icon: assets.icons.Instagram,
       url: 'https://www.instagram.com/refinedstudio._/',
     },
     {
-      Icon: assets.Facebook,
+      Icon: assets.icons.Facebook,
       url: 'https://www.facebook.com/refinedstudio.46',
     },
   ];
@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
       <ul className={styles['header-links']}>
         <li className={styles['header-links-item-contact']}>
-          <assets.Phone />
+          <assets.icons.Phone />
           <Text.Body2 classNames={[styles['header-links-item-contact-number']]}>
             097 422 08 97
           </Text.Body2>

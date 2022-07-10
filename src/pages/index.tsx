@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const infoSectionContentArray: InfoSectionContent[] = [
     {
       title: 'Về chúng tôi',
-      imageSrc: assets.AboutUsLanding,
+      imageSrc: assets.general.AboutUsLanding,
       paragraphs: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo.',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo.',
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
     },
     {
       title: 'Dịch vụ',
-      imageSrc: assets.ServicesLanding,
+      imageSrc: assets.general.ServicesLanding,
       paragraphs: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo.',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo.',
@@ -37,35 +37,35 @@ const Home: NextPage = () => {
 
   const ourWorks: PortfolioImage[] = [
     {
-      imageSrc: assets.DanDanBoo,
+      imageSrc: assets.general.DanDanBoo,
       ctaDisplay: 'DAN DAN BOO',
     },
     {
-      imageSrc: assets.NerdUnit,
+      imageSrc: assets.general.NerdUnit,
       ctaDisplay: 'NERD UNIT',
     },
     {
-      imageSrc: assets.BikeGang,
+      imageSrc: assets.general.BikeGang,
       ctaDisplay: 'BIKE GANG',
     },
     {
-      imageSrc: assets.ClownZ,
+      imageSrc: assets.general.ClownZ,
       ctaDisplay: 'CLOWNZ',
     },
     {
-      imageSrc: assets.Tlinh,
+      imageSrc: assets.general.Tlinh,
       ctaDisplay: 'Tlinh',
     },
     {
-      imageSrc: assets.Chipu,
+      imageSrc: assets.general.Chipu,
       ctaDisplay: 'Chipu',
     },
     {
-      imageSrc: assets.Buffaloes,
+      imageSrc: assets.general.Buffaloes,
       ctaDisplay: 'Buffaloes',
     },
     {
-      imageSrc: assets.QuocTit,
+      imageSrc: assets.general.QuocTit,
       ctaDisplay: 'QUOC TIT',
     },
   ];
@@ -73,15 +73,15 @@ const Home: NextPage = () => {
   const carouselItems: CarouselItemType[] = [
     {
       displayText: 'Dan Dan Collection',
-      imageSrc: assets.DanDanBoo,
+      imageSrc: assets.general.DanDanBoo,
     },
     {
       displayText: 'ClownZ Collection',
-      imageSrc: assets.ClownZ,
+      imageSrc: assets.general.ClownZ,
     },
     {
       displayText: 'Chipu Collection',
-      imageSrc: assets.Chipu,
+      imageSrc: assets.general.Chipu,
     },
   ];
 

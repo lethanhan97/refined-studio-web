@@ -30,21 +30,21 @@ const Footer: React.FC<FooterProps> = ({}) => {
 
   const footerContactItems: FooterContactItemProps[] = [
     {
-      Icon: assets.Phone,
+      Icon: assets.icons.Phone,
       displayText: '097 422 08 97',
       copyText: '0974220897',
     },
     {
-      Icon: assets.Mail,
+      Icon: assets.icons.Mail,
       displayText: 'refinedstudio46@gmail.com',
     },
     {
-      Icon: assets.Instagram,
+      Icon: assets.icons.Instagram,
       url: 'https://www.instagram.com/refinedstudio._/',
       displayText: 'refinedstudio._',
     },
     {
-      Icon: assets.Facebook,
+      Icon: assets.icons.Facebook,
       url: 'https://www.facebook.com/refinedstudio.46',
       displayText: 'refinedstudio.46 ',
     },

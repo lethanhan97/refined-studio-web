@@ -9,27 +9,27 @@ import Text from '../../shared/components/Text';
 const Projects: NextPage = () => {
   const mockData: PreviewProps[] = [
     {
-      imageSrc: assets.BikeGang,
+      imageSrc: assets.general.BikeGang,
       name: 'Lalala',
     },
     {
-      imageSrc: assets.BikeGang,
+      imageSrc: assets.general.BikeGang,
       name: 'Lalala',
     },
     {
-      imageSrc: assets.BikeGang,
+      imageSrc: assets.general.BikeGang,
       name: 'Lalala',
     },
     {
-      imageSrc: assets.BikeGang,
+      imageSrc: assets.general.BikeGang,
       name: 'Lalala',
     },
     {
-      imageSrc: assets.BikeGang,
+      imageSrc: assets.general.BikeGang,
       name: 'Lalala',
     },
     {
-      imageSrc: assets.BikeGang,
+      imageSrc: assets.general.BikeGang,
       name: 'Lalala',
     },
   ];
