@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { ViewportDimensionContext } from '../../contexts/ViewportDimensionContext';
 import { c } from '../../utils/classNameParser';
 import Button from '../Button';
 import Text from '../Text';
@@ -23,11 +24,14 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   reverse,
   ctaDisplay,
 }) => {
+  const { currentMode } = useContext(ViewportDimensionContext);
+
   return (
     <section
       className={c([
         styles['info-section'],
         reverse ? styles['info-section-reverse'] : '',
+        currentMode !== 'desktop' ? styles['info-section-small'] : '',
         ...classNames,
       ])}
     >
@@ -44,16 +48,20 @@ const InfoSection: React.FC<InfoSectionProps> = ({
         </Button>
       </article>
 
-      <div className={styles['info-section-spacer']} />
+      {currentMode === 'desktop' ? (
+        <>
+          <div className={styles['info-section-spacer']} />
 
-      <div className={styles['info-section-col']}>
-        <Image
-          layout="fill"
-          objectFit="cover"
-          src={imageSrc}
-          alt="About us landing photo"
-        />
-      </div>
+          <div className={styles['info-section-col']}>
+            <Image
+              layout="fill"
+              objectFit="cover"
+              src={imageSrc}
+              alt="About us landing photo"
+            />
+          </div>
+        </>
+      ) : null}
     </section>
   );
 };

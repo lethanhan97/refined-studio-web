@@ -3,6 +3,10 @@
   display: flex;
   min-height: 60vh;
 
+  &-small {
+    min-height: fit-content;
+  }
+
   &-reverse {
     flex-direction: row-reverse;
   }
