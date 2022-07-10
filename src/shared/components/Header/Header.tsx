@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import assets from '../../assets';
 import { IconProps } from '../../assets/icons/types';
+import { ViewportDimensionContext } from '../../contexts/ViewportDimensionContext';
+import HamburgerMenu from '../HamburgerMenu';
 import Logo from '../Logo';
 import Text from '../Text';
 import styles from './Header.module.scss';
@@ -21,6 +23,7 @@ interface ContactUsItem {
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
+  const { currentMode } = useContext(ViewportDimensionContext);
   const headerNavItems: HeaderNavItem[] = [
     {
       display: 'Projects',
@@ -66,44 +69,51 @@ const Header: React.FC<HeaderProps> = ({}) => {
         </a>
       </Link>
 
-      <nav className={styles['header-nav']}>
-        <ul className={styles['header-nav-list']}>
-          {headerNavItems.map(({ display, url }) => (
-            <li className={styles['header-nav-list-item']} key={url}>
-              <Link href={url}>
-                <a>
-                  <Text.Body2
-                    classNames={[
-                      currentRoute.includes(url)
-                        ? styles['header-nav-list-item-selected']
-                        : '',
-                    ]}
-                  >
-                    {display}
-                  </Text.Body2>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {currentMode === 'desktop' ? (
+        <>
+          <nav className={styles['header-nav']}>
+            <ul className={styles['header-nav-list']}>
+              {headerNavItems.map(({ display, url }) => (
+                <li className={styles['header-nav-list-item']} key={url}>
+                  <Link href={url}>
+                    <a>
+                      <Text.Body2
+                        classNames={[
+                          currentRoute.includes(url)
+                            ? styles['header-nav-list-item-selected']
+                            : '',
+                        ]}
+                      >
+                        {display}
+                      </Text.Body2>
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-      <ul className={styles['header-links']}>
-        <li className={styles['header-links-item-contact']}>
-          <assets.icons.Phone />
-          <Text.Body2 classNames={[styles['header-links-item-contact-number']]}>
-            097 422 08 97
-          </Text.Body2>
-        </li>
-        {contactUsItems.map(({ Icon, url }) => (
-          <li className={styles['header-links-item']} key={url}>
-            <a href={url} target="_blank" rel="noreferrer">
-              {' '}
-              <Icon />
-            </a>
-          </li>
-        ))}
-      </ul>
+          <ul className={styles['header-links']}>
+            <li className={styles['header-links-item-contact']}>
+              <assets.icons.Phone />
+              <Text.Body2
+                classNames={[styles['header-links-item-contact-number']]}
+              >
+                097 422 08 97
+              </Text.Body2>
+            </li>
+            {contactUsItems.map(({ Icon, url }) => (
+              <li className={styles['header-links-item']} key={url}>
+                <a href={url} target="_blank" rel="noreferrer">
+                  <Icon />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <HamburgerMenu />
+      )}
     </header>
   );
 };
