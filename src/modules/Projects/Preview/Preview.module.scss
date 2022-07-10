@@ -1,3 +1,11 @@
 .preview {
-background-color: red;
+  &-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+  }
+
+  &-title {
+    margin-top: 1rem;
+  }
 }
