@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 
-import Preview, { PreviewProps } from '../modules/Projects/Preview';
-import styles from '../modules/Projects/Projects.module.scss';
-import assets from '../shared/assets';
-import Text from '../shared/components/Text';
+import Preview, { PreviewProps } from '../../modules/Projects/Preview';
+import assets from '../../shared/assets';
+import styles from '../../modules/Projects/Projects.module.scss';
+import Text from '../../shared/components/Text';
 
 const Projects: NextPage = () => {
   const mockData: PreviewProps[] = [
