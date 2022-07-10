@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useContext, useMemo } from 'react';
 
 import Button from '../../../shared/components/Button';
@@ -21,6 +22,7 @@ const OurWorks: React.FC<OurWorksProps> = ({
   classNames = [],
   portfolioImages,
 }) => {
+  const router = useRouter();
   const { currentMode } = useContext(ViewportDimensionContext);
   const COL_COUNT = (() => {
     switch (currentMode) {
@@ -92,7 +94,14 @@ const OurWorks: React.FC<OurWorksProps> = ({
         ))}
       </div>
 
-      <Button mode="cta" classNames={[styles['our-works-cta']]}>
+      <Button
+        mode="cta"
+        classNames={[styles['our-works-cta']]}
+        onClick={(event) => {
+          event.preventDefault();
+          router.push('/projects');
+        }}
+      >
         <Text.Body1>Xem tất cả</Text.Body1>
       </Button>
     </section>

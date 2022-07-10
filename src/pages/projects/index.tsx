@@ -11,26 +11,38 @@ const Projects: NextPage = () => {
     {
       imageSrc: assets.general.BikeGang,
       name: 'Lalala',
+      pid: '1',
+      date: new Date('10-10-2020'),
     },
     {
       imageSrc: assets.general.BikeGang,
       name: 'Lalala',
+      pid: '2',
+      date: new Date('10-11-2020'),
     },
     {
       imageSrc: assets.general.BikeGang,
       name: 'Lalala',
+      pid: '3',
+      date: new Date('10-12-2020'),
     },
     {
       imageSrc: assets.general.BikeGang,
       name: 'Lalala',
+      pid: '4',
+      date: new Date('11-12-2020'),
     },
     {
       imageSrc: assets.general.BikeGang,
       name: 'Lalala',
+      pid: '5',
+      date: new Date('12-12-2020'),
     },
     {
       imageSrc: assets.general.BikeGang,
       name: 'Lalala',
+      pid: '6',
+      date: new Date('11-11-2020'),
     },
   ];
 
@@ -46,9 +58,9 @@ const Projects: NextPage = () => {
         <Text.H1>PROJECTS</Text.H1>
 
         <div className={styles['projects-details']}>
-          {mockData.map((project, i) => (
+          {mockData.map((project) => (
             <Preview
-              key={i}
+              key={project.pid}
               {...project}
               classNames={[styles['projects-details-item']]}
             />

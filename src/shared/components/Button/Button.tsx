@@ -9,6 +9,7 @@ interface ButtonProps {
   mode?: 'filled' | 'text' | 'outlined' | 'cta';
   ctaIconMode?: 'primary' | 'secondary';
   classNames?: string[];
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,9 +17,13 @@ const Button: React.FC<ButtonProps> = ({
   ctaIconMode,
   children,
   classNames = [],
+  onClick,
 }) => {
   return (
-    <button className={c([styles['button'], styles[mode], ...classNames])}>
+    <button
+      onClick={onClick}
+      className={c([styles['button'], styles[mode], ...classNames])}
+    >
       {children}
       {mode === 'cta' && (
         <>
