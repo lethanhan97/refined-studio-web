@@ -1,4 +1,28 @@
+$grid-count-web: 3;
+$grid-gap-web: 4.5rem;
+
 .projects {
   padding: 4.5rem;
   text-align: center;
+
+  &-details {
+    margin-top: 4rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    background-color: yellow;
+
+    &-item {
+      flex-basis: calc(
+        (100% / $grid-count-web) - ($grid-count-web * $grid-gap-web / 2)
+      );
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      margin: $grid-gap-web/2;
+      margin-top: 0;
+    }
+  }
 }
