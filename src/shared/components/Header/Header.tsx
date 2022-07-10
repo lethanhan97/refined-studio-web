@@ -3,56 +3,17 @@ import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
 
 import assets from '../../assets';
-import { IconProps } from '../../assets/icons/types';
 import { ViewportDimensionContext } from '../../contexts/ViewportDimensionContext';
-import HamburgerMenu from '../HamburgerMenu';
+import { contactUsItems, headerNavItems } from '../../utils/nav';
+import HamburgerMenuIcon from '../HamburgerMenuIcon';
 import Logo from '../Logo';
 import Text from '../Text';
 import styles from './Header.module.scss';
-
-interface HeaderNavItem {
-  display: string;
-  url: string;
-}
-
-interface ContactUsItem {
-  Icon: React.FC<IconProps>;
-  url: string;
-}
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
   const { currentMode } = useContext(ViewportDimensionContext);
-  const headerNavItems: HeaderNavItem[] = [
-    {
-      display: 'Projects',
-      url: '/projects',
-    },
-    {
-      display: 'Services',
-      url: '/services',
-    },
-    {
-      display: 'About Us',
-      url: '/about-us',
-    },
-    {
-      display: 'Packages',
-      url: '/packages',
-    },
-  ];
-
-  const contactUsItems: ContactUsItem[] = [
-    {
-      Icon: assets.icons.Instagram,
-      url: 'https://www.instagram.com/refinedstudio._/',
-    },
-    {
-      Icon: assets.icons.Facebook,
-      url: 'https://www.facebook.com/refinedstudio.46',
-    },
-  ];
 
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState('');
@@ -112,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
           </ul>
         </>
       ) : (
-        <HamburgerMenu />
+        <HamburgerMenuIcon />
       )}
     </header>
   );

@@ -1,2 +1,77 @@
+@import '../../../shared/styles/colors.scss';
+
+$transition-time: 500ms;
+
 .hamburger-menu {
+  background-color: opacify($black-1, 0.6);
+
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: flex-end;
+
+  transition: opacity $transition-time ease;
+
+  &-show {
+    opacity: 1;
+  }
+
+  &-hide {
+    opacity: 0;
+  }
+
+  &-main {
+    background-color: $white;
+    height: 100%;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    transition: width $transition-time ease, padding $transition-time ease;
+
+    &-show {
+      width: 200px;
+      padding: 2rem 4rem;
+    }
+
+    &-hide {
+      overflow: hidden;
+      width: 0;
+      padding: 2rem 0;
+    }
+
+    &-icon {
+      position: absolute;
+
+      top: 1rem;
+      right: 1rem;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-wrapper {
+        flex: 1;
+      }
+
+      &-item {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    &-links {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

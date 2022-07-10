@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { SideMenuProvider } from '../../contexts/SideMenuContext';
 import { ViewportDimensionProvider } from '../../contexts/ViewportDimensionContext';
 
 interface ContextWrapperProps {
@@ -7,7 +8,11 @@ interface ContextWrapperProps {
 }
 
 const ContextWrapper: React.FC<ContextWrapperProps> = ({ children }) => {
-  return <ViewportDimensionProvider>{children}</ViewportDimensionProvider>;
+  return (
+    <ViewportDimensionProvider>
+      <SideMenuProvider>{children}</SideMenuProvider>
+    </ViewportDimensionProvider>
+  );
 };
 
 export default ContextWrapper;
