@@ -23,6 +23,10 @@ interface HeaderProps {}
 const Header: React.FC<HeaderProps> = ({}) => {
   const headerNavItems: HeaderNavItem[] = [
     {
+      display: 'Projects',
+      url: '/projects',
+    },
+    {
       display: 'Services',
       url: '/services',
     },
@@ -33,10 +37,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
     {
       display: 'Packages',
       url: '/packages',
-    },
-    {
-      display: 'Our Works',
-      url: '/our-works',
     },
   ];
 
