@@ -1,16 +1,5 @@
-interface Project {
-  name: string;
-  date: Date;
-  coverPhoto: StaticImageData;
-  photos: StaticImageData[];
-}
-
-type ProjectListItem = Omit<Project, 'photos'>;
-
-type ProjectDatabase = {
-  [pid: string]: Project;
-};
-const projectDatabase: ProjectDatabase = {};
+import { projectDatabase } from './database';
+import { ProjectListItem } from './types';
 
 interface GetAllProjectsResponse {
   [pid: string]: ProjectListItem;
