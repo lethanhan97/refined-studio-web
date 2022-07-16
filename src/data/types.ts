@@ -1,4 +1,5 @@
 export interface Project {
+  pid: string;
   name: string;
   date: Date;
   coverPhoto: StaticImageData;

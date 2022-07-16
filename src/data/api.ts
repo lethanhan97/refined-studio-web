@@ -1,18 +1,14 @@
 import { projectDatabase } from './database';
 import { ProjectListItem } from './types';
 
-interface GetAllProjectsResponse {
-  [pid: string]: ProjectListItem;
-}
-export function getAllProjects(): GetAllProjectsResponse[] {
+export function getAllProjects(): ProjectListItem[] {
   const pidList = Object.keys(projectDatabase);
 
   return pidList.map((pid) => ({
-    [pid]: {
-      name: projectDatabase[pid].name,
-      date: projectDatabase[pid].date,
-      coverPhoto: projectDatabase[pid].coverPhoto,
-    },
+    pid,
+    name: projectDatabase[pid].name,
+    date: projectDatabase[pid].date,
+    coverPhoto: projectDatabase[pid].coverPhoto,
   }));
 }
 
