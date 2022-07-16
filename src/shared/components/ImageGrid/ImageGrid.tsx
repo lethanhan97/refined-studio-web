@@ -2,25 +2,25 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useContext, useMemo } from 'react';
 
-import Button from '../../../shared/components/Button';
-import Text from '../../../shared/components/Text';
-import { ViewportDimensionContext } from '../../../shared/contexts/ViewportDimensionContext';
-import { c } from '../../../shared/utils/classNameParser';
-import styles from './OurWorks.module.scss';
+import Button from '../Button';
+import Text from '../Text';
+import { ViewportDimensionContext } from '../../contexts/ViewportDimensionContext';
+import { c } from '../../utils/classNameParser';
+import styles from './ImageGrid.module.scss';
 
-export interface PortfolioImage {
+export interface ImageGridItem {
   imageSrc: StaticImageData;
   ctaDisplay: string;
 }
 
 interface OurWorksProps {
   classNames: string[];
-  portfolioImages: PortfolioImage[];
+  imageGridItems: ImageGridItem[];
 }
 
 const OurWorks: React.FC<OurWorksProps> = ({
   classNames = [],
-  portfolioImages,
+  imageGridItems,
 }) => {
   const router = useRouter();
   const { currentMode } = useContext(ViewportDimensionContext);
@@ -36,38 +36,42 @@ const OurWorks: React.FC<OurWorksProps> = ({
   })();
 
   const portfolioImagesColumns = useMemo(() => {
-    const imagesPerCol = Math.ceil(portfolioImages.length / COL_COUNT);
+    const imagesPerCol = Math.ceil(imageGridItems.length / COL_COUNT);
 
-    return portfolioImages.reduce((aggregator, image, i) => {
-      if (i % imagesPerCol === 0) aggregator.push([] as PortfolioImage[]);
+    return imageGridItems.reduce((aggregator, image, i) => {
+      if (i % imagesPerCol === 0) aggregator.push([] as ImageGridItem[]);
       aggregator[aggregator.length - 1].push(image);
 
       return aggregator;
-    }, [] as PortfolioImage[][]);
-  }, [COL_COUNT, portfolioImages]);
+    }, [] as ImageGridItem[][]);
+  }, [COL_COUNT, imageGridItems]);
+
+  const getIndividualImageClassname = (itemNumber: number) => {
+    if (currentMode === 'desktop') {
+      return styles[
+        `our-works-grid-item-${itemNumber % 2 === 1 ? 'short' : 'long'}`
+      ];
+    }
+
+    return styles['our-works-grid-item-non-desktop'];
+  };
 
   return (
     <section className={c([styles['our-works'], ...classNames])}>
       <Text.H2>Our Works</Text.H2>
 
       <div className={styles['our-works-grid']}>
-        {portfolioImagesColumns.map((column, i) => (
-          <div className={styles['our-works-grid-col']} key={i}>
-            {column.map(({ imageSrc, ctaDisplay }, j) => (
+        {portfolioImagesColumns.map((column, columnNumber) => (
+          <div className={styles['our-works-grid-col']} key={columnNumber}>
+            {column.map(({ imageSrc, ctaDisplay }, rowNumber) => (
               <div
-                key={j}
+                key={rowNumber}
                 className={c([
                   styles['our-works-grid-item'],
-                  i < portfolioImagesColumns.length - 1
+                  columnNumber < portfolioImagesColumns.length - 1
                     ? styles['our-works-grid-item-space']
                     : '',
-                  styles[
-                    `our-works-grid-item-${
-                      (i + j) % 2 === 1 && currentMode === 'desktop'
-                        ? 'short'
-                        : 'long'
-                    }`
-                  ],
+                  getIndividualImageClassname(rowNumber + columnNumber),
                 ])}
               >
                 <Image

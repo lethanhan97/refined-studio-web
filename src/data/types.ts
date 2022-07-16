@@ -2,11 +2,11 @@ export interface Project {
   pid: string;
   name: string;
   date: Date;
-  coverPhoto: StaticImageData;
-  photos: StaticImageData[];
+  coverImage: StaticImageData;
+  images: StaticImageData[];
 }
 
-export type ProjectListItem = Omit<Project, 'photos'>;
+export type ProjectListItem = Omit<Project, 'images'>;
 
 export type ProjectDatabase = {
   [pid: string]: Project;

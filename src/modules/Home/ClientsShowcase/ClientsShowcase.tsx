@@ -14,8 +14,17 @@ interface ClientsShowcaseProps {
 const ClientsShowcase: React.FC<ClientsShowcaseProps> = ({
   classNames = [],
 }) => {
-  const { width } = useContext(ViewportDimensionContext);
-  const CLIENTS_PER_VIEW = 5;
+  const { width, currentMode } = useContext(ViewportDimensionContext);
+  const CLIENTS_PER_VIEW = (() => {
+    switch (currentMode) {
+      case 'desktop':
+        return 5;
+      case 'tablet':
+        return 4;
+      default:
+        return 2;
+    }
+  })();
 
   return (
     <section className={c([styles['clients-showcase'], ...classNames])}>

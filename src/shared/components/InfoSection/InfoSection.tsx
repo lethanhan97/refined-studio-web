@@ -57,7 +57,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
               layout="fill"
               objectFit="cover"
               src={imageSrc}
-              alt="About us landing photo"
+              alt="About us landing image"
             />
           </div>
         </>

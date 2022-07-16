@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Carousel, { CarouselItemType } from '../modules/Home/Carousel';
 import ClientsShowcase from '../modules/Home/ClientsShowcase';
 import styles from '../modules/Home/Home.module.scss';
-import OurWorks, { PortfolioImage } from '../modules/Home/OurWorks';
+import OurWorks, { PortfolioImage } from '../shared/components/ImageGrid';
 import Slogan from '../modules/Home/Slogan';
 import assets from '../shared/assets';
 import InfoSection, {
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
         ))}
 
         <OurWorks
-          portfolioImages={ourWorks}
+          imageGridItems={ourWorks}
           classNames={[styles['home-our-works']]}
         />
         <ClientsShowcase classNames={[styles['home-client-showcase']]} />

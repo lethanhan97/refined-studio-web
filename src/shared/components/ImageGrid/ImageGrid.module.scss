@@ -20,7 +20,7 @@
       flex-direction: column;
 
       flex: 1;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     &-item {
@@ -63,6 +63,10 @@
 
       &-long {
         flex: 1.5;
+      }
+
+      &-non-desktop {
+        height: 40vw;
       }
 
       &-space {

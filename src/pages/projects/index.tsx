@@ -8,10 +8,10 @@ import { getAllProjects } from '../../data/api';
 
 const Projects: NextPage = () => {
   const data: PreviewProps[] = getAllProjects().map(
-    ({ pid, name, coverPhoto, date }) => ({
+    ({ pid, name, coverImage: coverImage, date }) => ({
       pid,
       name,
-      imageSrc: coverPhoto,
+      imageSrc: coverImage,
       date,
     })
   );

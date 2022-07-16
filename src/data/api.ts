@@ -8,7 +8,7 @@ export function getAllProjects(): ProjectListItem[] {
     pid,
     name: projectDatabase[pid].name,
     date: projectDatabase[pid].date,
-    coverPhoto: projectDatabase[pid].coverPhoto,
+    coverImage: projectDatabase[pid].coverImage,
   }));
 }
 

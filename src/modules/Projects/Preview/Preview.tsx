@@ -35,7 +35,7 @@ const Preview: React.FC<PreviewProps> = ({
           layout="fill"
           objectFit="cover"
           src={imageSrc}
-          alt="About us landing photo"
+          alt="About us landing image"
         />
       </div>
       <Text.H4 classNames={[styles['preview-title']]}>{name}</Text.H4>

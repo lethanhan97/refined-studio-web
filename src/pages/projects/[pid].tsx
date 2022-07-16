@@ -3,7 +3,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { getProject } from '../../data/api';
-import styles from '../../modules/Projects/Projects.module.scss';
+import styles from '../../modules/ProjectDetails/ProjectDetails.module.scss';
+import ImageGridLong from '../../shared/components/ImageGridLong';
 import Text from '../../shared/components/Text';
 
 const ProjectDetails: NextPage = () => {
@@ -13,7 +14,7 @@ const ProjectDetails: NextPage = () => {
   if (!router.isReady) return null;
 
   // TODO: Make an error boundary page
-  const project = getProject(String(pid));
+  const { name, images } = getProject(String(pid));
 
   return (
     <>
@@ -23,9 +24,13 @@ const ProjectDetails: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles['projects']}>
-        <Text.H1>{project.name}</Text.H1>
-        {/* <Text.H1>{JSON.stringify(project)}</Text.H1> */}
+      <div className={styles['project-details']}>
+        <Text.H1>{name}</Text.H1>
+
+        <ImageGridLong
+          images={images}
+          classNames={[styles['project-details-carousel']]}
+        />
       </div>
     </>
   );
